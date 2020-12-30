@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MBTA Next Stop - Know Before You Go</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/mbta.png">
+  </head>
+  <body>
+    <nav class="navbar navbar-brand" role="navigation" aria-label="main navigation">
+        <div class="navbar-item">
+            <img class="navbar-brand mr-2" src="assets/img/nextstop.png" alt="MBTA Next Stop" width="60" height="65"><br>
+            <div class=""><span class="title">MBTA <em>Next</em> Stop</span><br><span class="subtitle"><small>Know Before You Go</small></span></div>
+        </div>
+    </nav>
+
+    <section class="container">
+      <div class="columns is-mobile">
+        <div class="column is-10 is-offset-1 board">
+          <div class="columns">
+            <div class="column left">
+              <h1 class="title is-1">Plan Ahead</h1>
+              <h2 class="subtitle colored is-4">MBTA Subway and Trolley Station Schedules
+                <span class="icon is-small">
+                  <i class="fas fa-train fa-xs ml-5 mr-1"></i>
+                  <i class="fas fa-subway fa-xs"></i>
+                </span>
+              </h2>
+              <p>Know when the next trains will be departing from a specific stop so that you can plan when you should arrive to the boarding area.</p>
+            </div>
+            <div class="column right has-text-centered">
+              <p class="description">Please choose your route, station and travel direction below</p>
+              <form>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <div class="select is-medium is-fullwidth">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-route fa-xs mr-1"></i>
+                      </span>
+                      <select name="routes" id="routes" onchange="getStops()">
+                        <option value="None">Select a route..</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <div class="select is-medium is-fullwidth">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-store-alt fa-xs"></i>
+                      </span>
+                      <select name="stops" id="stops" onchange="getDirections()" disabled>
+                        <option value="None">Select a station..</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="field">
+                  <div class="control has-icons-left">
+                    <div class="select is-medium is-fullwidth">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-location-arrow fa-xs"></i>
+                      </span>
+                      <select name="directions" id="directions" onchange="getPrediction()" disabled>
+                        <option value="None">Select route direction..</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <span style="display: none;" id="prediction">Next train departs soon</span>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <nav class="navbar is-fixed-bottom" style="justify-content: center;">
+    <div class="navbar-item has-text-centered">
+        <p><small>&copy; <script>document.write(new Date().getFullYear())</script> MBTA. All Rights Reserved.</small></p>
+    </div>
+</nav>
+    <script defer src="assets/js/app.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.js" integrity="sha512-bYkaBWaFtfPIMYt9+CX/4DWgfrjcHinjerNYxQmQx1VM76eUsPPKZa5zWV8KksVkBF/DaHSADCwil2J5Uq2ctA==" crossorigin="anonymous"></script>
+  </body>
+</html>

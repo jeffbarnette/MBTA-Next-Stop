@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "2a5434fd-be73-451d-aa0b-95b4f2ac3f2e",
+		"name": "MBTA Next Stop API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Routes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/routes/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"routes",
+						""
+					]
+				},
+				"description": "Get all available routes that service Light and Heavy Rail trains"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stops",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/stops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"stops",
+						""
+					]
+				},
+				"description": "Get all available stops that service Light and Heavy Rail trains"
+			},
+			"response": []
+		},
+		{
+			"name": "Stops by Route Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/stops/Blue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"stops",
+						"Blue"
+					]
+				},
+				"description": "All stops along a specific route by route id"
+			},
+			"response": []
+		},
+		{
+			"name": "Route Details by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/route/Blue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"route",
+						"Blue"
+					]
+				},
+				"description": "Details on a specific route id"
+			},
+			"response": []
+		},
+		{
+			"name": "Stop Details by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/stop/70047",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"stop",
+						"70047"
+					]
+				},
+				"description": "Details on a specific stop id"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Prediction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/prediction/Blue/place-aport/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"prediction",
+						"Blue",
+						"place-aport",
+						"1"
+					]
+				},
+				"description": "Get a prediction based on route id, stop id and direction id"
+			},
+			"response": []
+		}
+	]
+}
