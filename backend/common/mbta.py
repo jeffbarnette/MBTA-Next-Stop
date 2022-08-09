@@ -14,7 +14,7 @@ def get_routes() -> Dict:
     resource = "routes"
     headers = {"x-api-key": API_KEY}
     # Only get the Light (0) and Heavy (1) Rail Trains
-    response = requests.get(BASE_URL + resource + '?filter%5Btype%5D=0%2C1', headers=headers)
+    response = requests.get(f'{BASE_URL}{resource}?filter%5Btype%5D=0%2C1', headers=headers)
 
     content = json.loads(response.content.decode('utf-8'))
 
@@ -28,7 +28,7 @@ def get_route(route_id: str = None) -> Dict:
     headers = {"x-api-key": API_KEY}
     if route_id:
         # Get route details by route id
-        response = requests.get(BASE_URL + resource + f'/{route_id}', headers=headers)
+        response = requests.get(f'{BASE_URL}{resource}/{route_id}', headers=headers)
         # Return route details
         json_response = json.loads(response.content.decode('utf-8'))
         return json.dumps(json_response, indent=4)
@@ -44,10 +44,10 @@ def get_stops(route_id: str = None) -> Dict:
     headers = {"x-api-key": API_KEY}
     if route_id:
         # Only get stops for a specific route id
-        response = requests.get(BASE_URL + resource + '?filter%5Broute%5D=' + route_id, headers=headers)
+        response = requests.get(f'{BASE_URL}{resource}?filter%5Broute%5D=' + route_id, headers=headers)
     else:
         # Get all stops that service Light (0) and Heavy (1) Rail Trains
-        response = requests.get(BASE_URL + resource + '?filter%5Broute_type%5D=0%2C1', headers=headers)
+        response = requests.get(f'{BASE_URL}{resource}?filter%5Broute_type%5D=0%2C1', headers=headers)
 
     content = json.loads(response.content.decode('utf-8'))
 
@@ -61,7 +61,7 @@ def get_stop(stop_id: str = None) -> Dict:
     headers = {"x-api-key": API_KEY}
     if stop_id:
         # Get stop details by stop id
-        response = requests.get(BASE_URL + resource + f'/{stop_id}', headers=headers)
+        response = requests.get(f'{BASE_URL}{resource}/{stop_id}', headers=headers)
         # Return stop details
         json_response = json.loads(response.content.decode('utf-8'))
         return json.dumps(json_response, indent=4)
@@ -78,9 +78,9 @@ def get_prediction(route_id: str = None, stop_id: str = None, direction_id: str 
     # Make sure the required ids were provided
     if stop_id and direction_id and route_id:
         # Get prediction results based on route id, stop id and direction id
-        response = requests.get(BASE_URL + resource + '?filter%5Broute%5D=' \
-        + route_id + '&filter%5Bstop%5D=' + stop_id + '&filter%5Bdirection_id%5D=' \
-        + direction_id, headers=headers)
+        response = requests.get(f'{BASE_URL}{resource}?filter%5Broute%5D=' \
+        + f'{route_id}&filter%5Bstop%5D={stop_id}&filter%5Bdirection_id%5D=' \
+        + f'{direction_id}', headers=headers)
         # Return the prediction results
         json_response = json.loads(response.content.decode('utf-8'))
         return json.dumps(json_response, indent=4)

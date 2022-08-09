@@ -10,6 +10,8 @@ The backend API service is written in Python + Flask and demonstrates a backend 
 3. Provide the route directions for a given stop.
 4. Provide the next predicted departure time for a train based on the route, stop and route direction selected.
 
+![MBTA Next Stop](docs/screenshot.png)
+
 This information is provided via API in JSON to a separate frontend web application client (MBTA Next Stop), which is the included frontend web application written in HTML + CSS + JavaScript, and located in the **/frontend** folder path.
 
 _Note: You will need to obtain a **Free API Key** from MBTA at https://api-v3.mbta.com and then update the **.env** file located in the **/backend** folder path with the key before you can make requests._
